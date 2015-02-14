@@ -36,12 +36,31 @@ module LinkedList
       end
     end
 
+    def find(data)
+      node = @head
+      while (node != nil && node.data != data )
+        node = node.pointer
+      end
+      node
+    end
+
     def add(data)  # adds new members
       node = @head
       while (node.pointer != nil)
         node = node.pointer
       end
       node.pointer = Node.new(data)
+      self
+    end
+
+    def add_a(data)
+      node = @head
+      while (node.pointer != nil)
+        node = node.pointer
+      end
+      if data.respond_to? :each
+        data.each { |datum| self.add(datum)}
+      end
       self
     end
 
