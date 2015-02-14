@@ -13,13 +13,22 @@ module LinkedList
     end
   end
 
+  class DoublyNode
+    attr_accessor :data, :backward, :forward
+    def initialize(data, backward=nil, forward=nil)
+      @data = data
+      @backward = backward
+      @forward = forward
+    end
+  end
+
   class Singly
     def initialize(data) # constructor
       if data.class == Array
         @head = Node.new(data[0])
         data.each.with_index { |datum, index| self.add(datum) if index > 0}
       else
-        @head = Node.new(data[0])
+        @head = Node.new(data)
       end
       self
     end
@@ -53,7 +62,7 @@ module LinkedList
       self
     end
 
-    def add_a(data)
+    def add_a(data) # adds array members to the list
       node = @head
       while (node.pointer != nil)
         node = node.pointer
@@ -110,5 +119,78 @@ module LinkedList
       end
       deleted_node = nil
     end
+  end
+
+  class Doubly
+    def initialize(data)
+      if data.respond_to? :each
+        @head = DoublyNode.new(data[0])
+        data.each.with_index { |datum, index| self.add(datum) if index > 0}
+      else
+        @head = DoublyNode.new(data)
+      end
+      self
+    end
+
+    def add(data) # adds data to list
+      dnode = @head
+      while (dnode.forward != nil)
+        dnode = dnode.forward
+      end
+      dnode.forward = DoublyNode.new(data, dnode)
+      self
+    end
+
+    def head #returns head
+      @head
+    end
+
+    def parse # parses all the members
+      dnode = @head
+      while (dnode != nil)
+        puts dnode.data
+        dnode = dnode.forward
+      end
+    end
+
+    def to_a
+      dnode = @head
+      array = Array.new
+      while (dnode != nil)
+        array << dnode.data
+        dnode = dnode.forward
+      end
+      array
+    end
+
+    def to_s
+      dnode = @head
+      string = String.new(@head.data.to_s)
+      dnode = dnode.forward
+      while (dnode != nil)
+        string << ", " << dnode.data.to_s
+        dnode = dnode.forward
+      end
+      string
+    end
+
+    def find(data)
+      dnode = @head
+      while (dnode != nil && dnode.data != data )
+        dnode = dnode.forward
+      end
+      dnode
+    end
+
+    def delete(data)
+      dnode = find(data)
+      if dnode
+        dnode1 = dnode.backward
+        dnode2 = dnode.forward
+        dnode1.forward = dnode2
+        dnode2.backward = dnode1
+      end
+    end
+
   end
 end
