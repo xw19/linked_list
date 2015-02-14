@@ -64,6 +64,13 @@ module LinkedList
       self
     end
 
+    def edit(old_data, new_data)
+      node = find(old_data)
+      if node
+        node.data = new_data
+      end
+    end
+
     def to_a # returns an array of all data
       node = @head
       array = Array.new

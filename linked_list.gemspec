@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'linked_list_sourav'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.date        = '2015-02-14'
   s.summary     = "Linked list library for ruby"
   s.description = "A simple linked list gem"
