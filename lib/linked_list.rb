@@ -13,7 +13,7 @@ module LinkedList
     end
   end
 
-  class SinglyLinkedList
+  class Singly
     def initialize(data) # constructor
       if data.class == Array
         @head = Node.new(data[0])
