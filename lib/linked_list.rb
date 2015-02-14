@@ -57,7 +57,7 @@ module LinkedList
 
     def to_s # returns all data in form of string
       node = @head
-      string = String.new(@head.data)
+      string = String.new(@head.data.to_s)
       node = node.pointer
       while (node != nil)
         string << ", " << node.data.to_s
