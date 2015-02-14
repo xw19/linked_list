@@ -12,5 +12,8 @@ This is linked list implementation in ruby. Its main purpose is demonstration
   list.find(10) # finds and return the node that contains data as 10
   list.delete(6)  # removes the node that contain 6 as data
   list.add_a([21, 22, 23, 24]) #adds array members directly
-  list = LinkedList::Singly.new([1, 2, 3, 4]) # intialize with an array 
+  list = LinkedList::Singly.new([1, 2, 3, 4]) # intialize with an array
+  list.parse # prints all the data from the list
+  list.to_a # prints an array of all data
+  list.to_s #prints an string of all data
 ```
