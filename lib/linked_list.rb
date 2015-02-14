@@ -1,4 +1,4 @@
-module LinkedList
+class LinkedList
 
   class Node # this class defines one node the basic building blog of linked list
     attr_accessor :data, :pointer # data for holding data and pointers refers to next node
