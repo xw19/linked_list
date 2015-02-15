@@ -6,6 +6,7 @@ class LinkedList
     def initialize(data, forward = nil) #intializes when new is invoked
       @data = data
       @forward = forward
+      self
     end
 
     def to_s
@@ -19,6 +20,11 @@ class LinkedList
       @data = data
       @backward = backward
       @forward = forward
+      self
+    end
+
+    def to_s
+      puts "Data: #{data}, Points to: #{self.forward.data}, Pointed from: #{self.backward.data}"
     end
   end
 
@@ -59,7 +65,7 @@ class LinkedList
         node = node.forward
       end
       node.forward = Node.new(data)
-      self
+      node.forward
     end
 
     def add_a(data) # adds array members to the list
