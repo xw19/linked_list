@@ -10,7 +10,7 @@ class LinkedList
     end
 
     def to_s
-      puts "Data: #{data} Points to: #{self.forward.data}"
+      puts "Data: #{self.data} Points to: #{self.forward.data}"
     end
   end
 
@@ -24,7 +24,7 @@ class LinkedList
     end
 
     def to_s
-      puts "Data: #{data}, Points to: #{self.forward.data}, Pointed from: #{self.backward.data}"
+      puts "Data: #{self.data}, Points to: #{self.forward.data}, Pointed from: #{self.backward.data}"
     end
   end
 
