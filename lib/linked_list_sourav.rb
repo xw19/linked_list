@@ -10,9 +10,9 @@ class LinkedList
     end
 
     def to_s
-      print "Data: #{self.data} "
-      print "Points to: #{self.forward.data}" if self.forward
-      print "\n"
+      string = "Data: #{self.data} "
+      string << "Points to: #{self.forward.data}" if self.forward
+      string
     end
   end
 
@@ -26,10 +26,10 @@ class LinkedList
     end
 
     def to_s
-      print "Data: #{self.data} "
-      print "Points to: #{self.forward.data}" if self.forward
-      print "Points to: #{self.backward.data}" if self.backward
-      print "\n"
+      string = "Data: #{self.data} "
+      string << "Points to: #{self.forward.data}" if self.forward
+      string << " Pointed by: #{self.backward.data}" if self.backward
+      string
     end
   end
 
