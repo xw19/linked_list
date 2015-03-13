@@ -17,6 +17,7 @@ This is linked list implementation both singly and doubly in ruby. Its main purp
   list.parse # prints all the data from the list
   list.to_a # prints an array of all data
   list.to_s #prints an string of all data
+  list.no_of_nodes # returns no of nodes present in the linked list
 
   ### The same for Doubly Linked list ###
 

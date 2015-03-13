@@ -34,13 +34,14 @@ class LinkedList
   end
 
   class Singly
-    def initialize(data) # constructor
+    def initialize(data = nil) # constructor
       if data.class == Array
         @head = Node.new(data[0])
         data.each.with_index { |datum, index| self.add(datum) if index > 0}
       else
         @head = Node.new(data)
       end
+      @count = 1
       self
     end
 
@@ -64,12 +65,17 @@ class LinkedList
       node
     end
 
+    def no_of_nodes
+      @count
+    end
+
     def add(data)  # adds new members
       node = @head
       while (node.forward != nil)
         node = node.forward
       end
       node.forward = Node.new(data)
+      @count += 1
       node.forward
     end
 
@@ -118,6 +124,7 @@ class LinkedList
       if node.data === data
         @head = node.forward
         deleted_node = node
+        @count -= 1
       else
         node = @head
         while( node != nil && node.forward != nil && (node.forward).data != data)
@@ -125,6 +132,7 @@ class LinkedList
         end
         if (node != nil) && (node.forward != nil)
           node.forward = (node.forward).forward
+          @count -= 1
         end
         deleted_node = node.forward
       end
@@ -140,6 +148,7 @@ class LinkedList
       else
         @head = DoublyNode.new(data)
       end
+      @count = 1
       self
     end
 
@@ -149,19 +158,23 @@ class LinkedList
         dnode = dnode.forward
       end
       dnode.forward = DoublyNode.new(data, dnode)
+      @count += 1
       self
     end
 
     def delete(data) # deletes a node
       dnode = find(data)
-      if dnode === @head
-        @head = dnode.forward
-      elsif dnode.forward == nil
-        prev_dnode = dnode.backward
-        prev_dnode.forward = nil
-      else
-        prev_dnode, next_dnode = dnode.backward, dnode.forward
-        prev_dnode.forward, next_dnode.backward = next_dnode, prev_dnode
+      if dnode
+        if dnode === @head
+          @head = dnode.forward
+        elsif dnode.forward == nil
+          prev_dnode = dnode.backward
+          prev_dnode.forward = nil
+        else
+          prev_dnode, next_dnode = dnode.backward, dnode.forward
+          prev_dnode.forward, next_dnode.backward = next_dnode, prev_dnode
+        end
+        @count -= 1
       end
       dnode = nil
     end

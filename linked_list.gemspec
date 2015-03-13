@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'linked_list_sourav'
-  s.version     = '0.0.13'
-  s.date        = '2015-02-14'
+  s.version     = '0.0.14pre'
+  s.date        = '2015-03-14'
   s.required_ruby_version = '>= 2.1.5'
   s.summary     = "Linked list library for ruby"
   s.description = "A simple linked list gem"
@@ -9,5 +9,5 @@ Gem::Specification.new do |s|
   s.email       = 'sourav.moitr@gmail.con'
   s.homepage    = 'https://github.com/xw19/linked_list'
   s.files       = ["lib/linked_list_sourav.rb"]
-  s.license       = 'MIT'
+  s.license     = 'MIT'
 end
