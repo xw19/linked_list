@@ -142,13 +142,13 @@ class LinkedList
 
   class Doubly < Singly
     def initialize(data) # intializes
+      @count = 1
       if data.respond_to? :each
         @head = DoublyNode.new(data[0])
         data.each.with_index { |datum, index| self.add(datum) if index > 0}
       else
         @head = DoublyNode.new(data)
       end
-      @count = 1
       self
     end
 
