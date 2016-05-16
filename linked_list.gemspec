@@ -8,6 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Sourav Moitra"]
   s.email       = 'sourav.moitr@gmail.con'
   s.homepage    = 'https://github.com/xw19/linked_list'
-  s.files       = ["lib/linked_list_sourav.rb"]
   s.license     = 'MIT'
+  s.files         = `git ls-files -z`.split("\x0")
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.add_development_dependency('rspec')
 end
