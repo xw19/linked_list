@@ -35,13 +35,13 @@ class LinkedList
 
   class Singly
     def initialize(data = nil) # constructor
+      @count = 1
       if data.class == Array
         @head = Node.new(data[0])
         data.each.with_index { |datum, index| self.add(datum) if index > 0}
       else
         @head = Node.new(data)
       end
-      @count = 1
       self
     end
 
